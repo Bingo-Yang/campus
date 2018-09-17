@@ -1,0 +1,82 @@
+HTML {
+	BACKGROUND::#F6F6F6; COLOR: #000
+}
+body {
+	background-color:#F6F6F6;
+	FONT-FAMILY: "Microsoft YaHei"; 
+}
+
+
+#menu {
+	LINE-HEIGHT: 42px; MARGIN: 0px auto; WIDTH: 1100px; HEIGHT: 42px;
+}
+#menu UL {
+	LIST-STYLE-TYPE: none; LIST-STYLE-IMAGE: none
+}
+LI.l1-nav {
+	POSITION: relative; TEXT-ALIGN: center; LINE-HEIGHT: 45px; WIDTH: 122px; FLOAT: left; HEIGHT: 45px; TOP: 0px; LEFT: 0px;
+}
+A.l1-nav {
+	TEXT-ALIGN: center;
+	LINE-HEIGHT: 42px;
+	WIDTH: 122px;
+	DISPLAY: block;
+	HEIGHT: 42px;
+	COLOR: #000;
+	TEXT-DECORATION: none;
+	FONT-FAMILY: "Microsoft YaHei";
+	font-size:15px;
+}
+LI.l1-nav:hover A.l1-nav {
+	BACKGROUND: #0159A3; COLOR: #fff;
+	FONT-FAMILY: "Microsoft YaHei";
+	font-size:14px;
+}
+A.l1-nav:hover {
+	BACKGROUND: #0159A3; COLOR: #fff
+}
+UL.l2-nav {
+	POSITION: absolute; VISIBILITY: hidden; TOP: 42px; LEFT: 0px; z-index:100;
+}
+LI.l2-nav {
+	POSITION: relative; FLOAT: left; TOP: 0px; LEFT: 0px
+}
+A.l2-nav {
+	TEXT-ALIGN: center; LINE-HEIGHT: 42px; WIDTH: 122px; DISPLAY: block; BACKGROUND:#0159A3; HEIGHT: 42px; COLOR: #fff; TEXT-DECORATION: none;
+	FONT-FAMILY: "Microsoft YaHei";
+	font-size:15px;
+		FILTER: alpha(opacity=80); 
+	Opacity: 0.7;	
+	
+}
+LI.l2-nav:hover A.l2-nav {
+	BACKGROUND: #6699CC; COLOR: #fff; text-decoration:none;
+}
+A.l2-nav:hover {
+	BACKGROUND: #1e6f46; COLOR: #fff
+}
+A.l1-nav:hover UL.l2-nav {
+	VISIBILITY: visible
+}
+LI.l1-nav:hover UL.l2-nav {
+	VISIBILITY: visible
+}
+
+/*content1 begin */
+#logo_top {
+	WIDTH: 100%; 
+	HEIGHT:103px; 
+	MARGIN-LEFT: auto; 
+	MARGIN-RIGHT: auto; 
+	text-align:center;
+	background-color:#0159A3;
+}
+
+
+
+
+
+
+
+
+/*foot end */

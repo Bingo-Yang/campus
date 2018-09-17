@@ -1,0 +1,109 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css"></style>
+	<title>校园管理系统</title>
+	<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static 'lrtk.css' %}">
+	<!-- 下拉特效 Styles begin -->
+	<link rel="stylesheet" href="{% static 'bellows.css' %}">
+	<link rel="stylesheet" href="{% static 'bellows-theme.css' %}">
+	<!-- 下拉特效 Styles end -->
+	
+</head>
+
+<body>
+	<div id="logo_top">
+
+
+	</div>
+
+	<!--menu begin-->
+	<div class="pc-menue">
+	    <div id="menu">
+		    <ul class="l1-nav">
+				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/">网站首页</a> </li>
+				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/xwpd/xygk">档案管理</a> 
+					<ul class="l2-nav">
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xygk/857.html">学生基本信息</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xygk/1274.html">学生入校登记</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xygk/859.html">学生信息维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/tppd/">学生登记查询</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/tppd/">教师基本信息</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/tppd/">教师信息维护</a> </li>
+					</ul>
+				</li>
+				
+				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/xwpd/xxxw">成绩管理</a>
+					<ul class="l2-nav">
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxxw/">成绩录入</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxgg/">成绩查询</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxgg/">班级成绩统计</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxgg/">年级成绩统计</a> </li>
+					</ul>	
+				</li>			
+				
+				
+				
+				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/xydj/">教职工管理</a> 
+					<ul class="l2-nav">
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxxw/">教职任课</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxgg/">班主任信息</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxgg/">任课教师查询</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxgg/">班主任查询</a> </li>
+					</ul>
+				</li>
+				
+				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/ybsza/">图书馆管理</a>
+					<ul class="l2-nav">
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/qcgcx/">图书登记</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/jjglx/">图书维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/jzgcx/">图书借阅</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/znzzgcxy/">图书归还</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xxyysx/">借阅查询</a> </li>
+					</ul>	
+				</li>	
+						
+				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/zzjg">代码维护</a> 
+					<ul class="l2-nav">
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/ycbgs/">专业代码维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/rsc/index.html">年级代码维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/jwc/">班级代码维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xgc/">学科代码维护</a> </li>
+					</ul>
+				</li>
+				
+				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/jwc/">用户维护</a> 
+
+					<ul class="l2-nav">
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/dz.html">用户添加</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/jwc/">用户查询</a> </li>
+					</ul>
+
+
+				</li>
+				
+				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/xgc/">系统信息</a> </li>	
+			</ul>
+	    </div>
+	</div>
+
+
+	<div class='content'>
+		
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

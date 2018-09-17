@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block main %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <form action=""  method="post" >
+    <table border="1" cellpadding="10" cellspacing="0" width="500">
+    {% csrf_token %}
+        <tr>
+            <td>学号：</td>
+            <td><input type="text"></td>
+            <td>姓名：</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>书号：</td>
+            <td></td>
+            <td>书名：</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>作者：</td>
+            <td></td>
+            <td>种类：</td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>价格：</td>
+            <td></td>
+            <td>登记员：</td>
+            <td><input type="text"></td>
+        </tr>
+    </table>
+        
+    <br>
+    <br>
+        
+    <table>
+        <tr>
+            <button value="save">保存</button>
+            <button value="reset">重置</button>
+        </tr>
+    </table>
+    </form>
+{% endblock %}

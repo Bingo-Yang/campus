@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+    <form action="/mark/select/" method="post">
+    {% csrf_token %}
+        <p align="center">
+        <label for="clz">年级名称：</label>
+            &emsp;
+        <select name="cls" id="clz">
+            <option value ="content">z</option>
+        </select>
+            &emsp;
+        <label for="aa">考试类别：</label>
+             &emsp;
+            <select id="aa" name="type">
+                <option value ="end">期末考试</option>
+                <option value ="middle">期中考试</option>
+                <option value="month">月考</option>
+            </select>
+             &emsp;
+        <label for="datei">考试日期：</label>
+            &emsp;
+        <input type="date" name="date" id="datei">
+            &emsp;
+        <input type="submit" value="查询">
+        </p>
+        <table border="1" align="center" cellspacing="0" cellpadding="0" width="700px" style="text-align: center;margin-top: 40px">
+            <tr style="border: 1px">
+                <td>班级名称</td>
+                <td>学生人数</td>
+                <td>考试类别</td>
+                <td>考试日期</td>
+                <td>z</td>
+            </tr>
+            <tr>
+                <td>z</td>
+                <td>z</td>
+                <td>z</td>
+                <td>z</td>
+                <td>z</td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

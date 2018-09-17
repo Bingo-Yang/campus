@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+    <form action="/mark/select/" method="post">
+    {% csrf_token %}
+        <p align="center">
+        <label for="condition1">请输入查询条件：</label>
+            &emsp;
+        <select name="type">
+            <option value ="code">学生编号</option>
+            <option value ="name">学生姓名</option>
+        </select>
+            &emsp;
+        <input type="text" name="condition" id="condition1">
+            &emsp;
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+        </p>
+        <table border="1" align="center" cellspacing="0" cellpadding="0" width="700px" style="text-align: center;margin-top: 40px">
+            <tr style="border: 1px">
+                <td>考试类别</td>
+                <td>科目名称</td>
+                <td>学生编号</td>
+                <td>学生姓名</td>
+                <td>成绩</td>
+            </tr>
+            <tr>
+                <td>z</td>
+                <td>z</td>
+                <td>z</td>
+                <td>z</td>
+                <td>z</td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

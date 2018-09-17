@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block main %}
+    <br><br><label for="" style="margin-left: 520px; margin-top: 200px;">请输入教师编号: <input type="text" name="master_code"></label>
+    <form action="" method="post">
+    {% csrf_token %}
+    <table  border="1" style="width: 800px; text-align: center; margin-top: 50px;" cellpadding="0" cellspacing="0" align="center">
+        <tr>
+             <td>教师姓名</td>
+             <td>性别</td>
+             <td>年龄</td>
+             <td>学历</td>
+             <td>授课专业</td>
+             <td>婚否</td>
+        </tr>
+        <tr>
+            <td>111</td>
+            <td>性别</td>
+             <td>年龄</td>
+             <td>学历</td>
+             <td>授课专业</td>
+             <td>婚否</td>
+        </tr>
+    </table>
+        <br><label for="" style="margin-left: 350px;">班级名称: <select name="class" id="">
+            <option value="yiban" >一班</option>
+            <option value="erban">二班</option>
+            <option value="sanban">三班</option>
+        </select>
+        </label>
+{#        <table style="margin-left: 300px;">#}
+{#            <tr>#}
+{#                <td style="margin-left: 300px;">班级名称: <select name="" id="" style="">#}
+{#                                <option value="yiban">一班</option>#}
+{#                                <option value="erban">二班</option>#}
+{#                                <option value="sanban">三班</option>#}
+{#                              </select>#}
+{#                </td>#}
+{#                <td >#}
+{#                    专业: <input type="text" name="zhuanye">#}
+{#                </td>#}
+{#            </tr>#}
+{#            <tr>#}
+{##}
+{#            </tr>#}
+{#        </table>#}
+        <label for="" style="margin-left: 400px;">专业: <input type="text" name="zhuanye"></label>
+        <br><br><label for="" style="margin-left: 350px;">年级: <input type="text" name="grade" style="margin-left: 30px;"></label>
+        <label for="" style="margin-left: 280px;">任职日期: <input type="text" name="start_date"></label>
+        <br><br><input type="submit" value="提交" style="margin-left: 550px;" >
+        <input type="submit" value="重置" style="margin-left: 100px;" >
+    </form>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block main %}
+    <table align="center" style="margin-top: 50px;">
+    <tr>
+        <td>请输入查询条件: <select name="" id="">
+            <option value="">年级</option>
+            <option value="">班级</option>
+        </select>
+        </td>
+        <td><input type="search"><input type="submit" value="提交"></td>
+        <td><input type="checkbox">查询历史记录</td>
+    </tr>
+    </table>
+    <table align="center" border="1" cellspacing="0" cellpadding="0" width="1000px;" style="text-align: center; margin-top: 50px;">
+    <tr>
+        <td>教师编号</td>
+        <td>教师姓名</td>
+        <td>教师性别</td>
+        <td>班级名称</td>
+        <td>年级</td>
+        <td>班级专业</td>
+        <td>任职日期</td>
+    </tr>
+    </table>
+{% endblock %}

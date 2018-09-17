@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+    <h2 style="text-align: center">教职任课</h2>
+    <form action="">
+        <label for="" style="margin-left: 350px;"> 教师编号:    <input type="text" name="t_code"></label>
+{#        <label for="" style="margin-left: 70px;">任课科目#}
+{#                    <input type="checkbox" name="course" value="yuwen"/>语文#}
+{#                    <input type="checkbox" name="course" value="shuxue"/>数学#}
+{#                    <input type="checkbox" name="course" value="yingyu"/>英语#}
+{#                    <input type="checkbox" name="course" value="lishi"/>历史#}
+{#        </label>#}
+        <label for="" style="margin-left: 70px;">任职科目:</label>
+        <select name="" id=""  style="margin-top: 30px;">
+{#            <span>任职科目</span>#}
+            <option value="yuwen">语文</option>
+            <option value="shuxue">数学</option>
+            <option value="yingyu">英语</option>
+            <option value="lishi">历史</option>
+        </select>
+        <label for="" style="margin-left: 70px;"> 任职日期:    <input type="date" name="t_date"></label>
+        <table border="1" style="margin-left: 290px;margin-top: 50px; width: 800px; text-align: center " cellpadding="0" cellspacing="0">
+            <tr >
+                <td>教师姓名</td>
+                <td>性别</td>
+                <td>年龄</td>
+                <td>学历</td>
+                <td>授课专业</td>
+                <td>婚否</td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </table>
+        <input type="submit" value="提交" style="margin-left: 600px; margin-top: 50px;">
+        <input type="submit" value="重置" style="margin-left: 50px; margin-top: 50px;">
+
+    </form>
+{% endblock %}

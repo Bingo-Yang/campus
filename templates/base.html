@@ -7,22 +7,31 @@
 	<title>校园管理系统</title>
 	<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="{% static 'lrtk.css' %}">
+    <link rel="stylesheet" href="{% static 'zi.css' %}">
 	<!-- 下拉特效 Styles begin -->
 	<link rel="stylesheet" href="{% static 'bellows.css' %}">
 	<link rel="stylesheet" href="{% static 'bellows-theme.css' %}">
 	<!-- 下拉特效 Styles end -->
-	
+    <script type="text/javascript" src="{% static 'jquery-1.12.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'cjjs.js' %}"></script>
+    <style>
+        span{
+            font-size: 8px;
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
 	<div id="logo_top">
 
 
+
 	</div>
 
 	<!--menu begin-->
 	<div class="pc-menue">
-	    <div id="menu">
+	    <div id="menu" style="width: 1000px">
 		    <ul class="l1-nav">
 				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/">网站首页</a> </li>
 				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/xwpd/xygk">档案管理</a> 
@@ -68,10 +77,10 @@
 						
 				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/zzjg">代码维护</a> 
 					<ul class="l2-nav">
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/ycbgs/">专业代码维护</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/rsc/index.html">年级代码维护</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/jwc/">班级代码维护</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xgc/">学科代码维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/maintain/major/">专业代码维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/maintain/grade/">年级代码维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/maintain/clazz/">班级代码维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/maintain/course/">学科代码维护</a> </li>
 					</ul>
 				</li>
 				
@@ -83,7 +92,7 @@
 					</ul>
 
 
-				</li>
+
 				
 				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/xgc/">系统信息</a> </li>	
 			</ul>
@@ -91,21 +100,32 @@
 	</div>
 
 
-	<div class='content'>
-		{% block main %}
+    <div id="middle" style="">
+        <div class="left">
+            <p>当前用户：{{ z }}</p>
+            <a href="/"><button >重新登录</button></a>
+            <button onClick="window.location.href='about:blank';window.close();" >退出系统</button>
+        </div>
+        <div class='content'>
+            {% block main %}
 
-        {% endblock %}
-	</div>
-
-
-
-
-
-
-
-
-
-
+            {% endblock %}
+        </div>
+        <div class="right">a</div>
+    </div>
 
 
-</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

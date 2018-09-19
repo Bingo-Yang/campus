@@ -22,4 +22,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # 成绩模块
     url(r'^mark/',include('mark.urls')),
+    # 登录 数据库
+    url(r'^',include('database.urls')),
+    # 代码维护
+    url(r'^maintain/',include('maintain.urls'))
 ]

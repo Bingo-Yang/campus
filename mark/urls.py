@@ -13,4 +13,10 @@ urlpatterns = [
     url(r'^stat/',views.stat),
     # 年级成绩统计
     url(r'^grade/',views.grade),
+    # AJAX
+    url(r'^exist/',views.exist),
+    url(r'^exist1/',views.exist1),
+    url(r'^exist2/', views.exist2),
+    # url(r'^exist3/', views.exist3),
+
 ]

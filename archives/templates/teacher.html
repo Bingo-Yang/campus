@@ -2,36 +2,27 @@
 
 
 {% block main %}
-    <form action="/archive/student/" method="post">
+    <form action="/archive/teacher/" method="post">
         {% csrf_token %}
         <table align="center" width="700px" style="margin-top: 60px">
-            <caption><h2>学生信息注册</h2></caption>
+            <caption><h2>教师信息注册</h2></caption>
             <tr style="height: 50px">
-                <td><label for="clazzz">学生班级</label></td>
-                <td>
-                    <select name="clazz" id="clazzz">
-                        {% for clazz in clazzs %}
-                            <option value="{{ clazz.cla_name }}">{{ clazz.cla_name }}</option>
-                        {% endfor %}
-                    </select>
-                </td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr style="height: 50px">
-                <td><label for="na">学生姓名</label></td>
+                <td><label for="na">教师姓名</label></td>
                 <td><input type="text" name="name" id="na"></td>
-                <td><label for="id1">学生编号</label></td>
-                <td><input type="text" name="id" id="id1"></td>
+                <td><label for="ag">年&emsp;龄</label></td>
+                <td><input type="text" name="age" id="ag"></td>
             </tr>
             <tr style="height: 50px">
-                <td><label for="ge">学生性别</label></td>
+                <td><label for="ge">性&emsp;别</label></td>
                 <td>
                     <input name="gender" type="radio" id="ge" checked="checked " value="男"/>男
                     <input name="gender" id="ge" type="radio" value="女"/>女
                 </td>
-                <td><label for="ag">学生年龄</label></td>
-                <td><input type="text" name="age" id="ag"></td>
+                <td><label for="mar">婚&emsp;否</label></td>
+                <td>
+                    <input name="marriage" type="radio" id="mar" checked="checked " value="未婚"/>未婚
+                    <input name="marriage" id="mar" type="radio" value="已婚"/>已婚
+                </td>
             </tr>
             <tr style="height: 50px">
                 <td><label for="sf">身份证号</label></td>
@@ -46,13 +37,23 @@
                 <td><input type="text" name="nation" id="nat"></td>
             </tr>
             <tr style="height: 50px">
-                <td><label for="ad">家庭住址</label></td>
-                <td><input type="text" name="addr" id="ad"></td>
-                <td><label for="pho">家庭电话</label></td>
+                <td><label for="edu">学&emsp;历</label></td>
+                <td><input type="text" name="education" id="edu"></td>
+                <td><label for="pho">联系电话</label></td>
                 <td><input type="text" name="phone" id="pho"></td>
             </tr>
-
-
+            <tr style="height: 50px">
+                <td><label for="id">教师编号</label></td>
+                <td><input type="text" name="id" id="id"></td>
+                <td><label for="maj">授课专业</label></td>
+                <td>
+                    <select name="major" id="maj">
+                        {% for major in majors %}
+                            <option value="{{ major.ma_name }}">{{ major.ma_name }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
         </table>
 
         <table align="center" width="700px" style="height: 50px">

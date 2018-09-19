@@ -109,6 +109,7 @@ class Teacher(models.Model):
     # 电话
     te_phone = models.PositiveIntegerField()
     te_major = models.ForeignKey(Major,on_delete=models.CASCADE)
+    #取消工作内容
     work_content = models.TextField()
     def __unicode__(self):
         return u'教师:%s'%self.te_name

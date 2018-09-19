@@ -122,7 +122,7 @@ class TeacherCourse(models.Model):
     id = models.AutoField(primary_key=True)
     teacher = models.ForeignKey(Teacher)
     course = models.ForeignKey(Course)
-    rkDATE = models.DateField(auto_now_add=True)
+    rkDATE = models.DateField()
     lizhiDATE = models.DateField()
     def __unicode__(self):
         return u'教师:%s,课程:%s'%(self.teacher.te_name,self.course.cou_name)
@@ -202,6 +202,7 @@ class Borrow(models.Model):
     student = models.ForeignKey(Stu,on_delete=models.CASCADE)
     start_time = models.DateField(auto_now_add=True)
     end_time = models.DateField(auto_now_add=True)
+    registrar = models.CharField(max_length=20)
 
     def __unicode__(self):
         return u'图书:%s,借阅人:%s' % (self.book.bo_name,self.student.st_name)

@@ -21,4 +21,6 @@ import archives
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^archive/',include('archives.urls')),
+    url(r'^users/',include('users.urls')),
+    url(r'^',include('database.urls'))
 ]

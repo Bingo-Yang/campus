@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <form action="/users/register/" method="post">
+        {% csrf_token %}
+        <table align="center" width="400px" style="margin-top: 60px">
+            <tr>
+                <td><label for="una">用户名:</label></td>
+                <td><input type="text" name="uname" id="una"></td>
+            </tr>
+            <tr>
+                <td><label for="pwd">密&emsp;码:</label></td>
+                <td><input type="password" name="pwd" id="pwd"></td>
+            </tr>
+            <tr>
+                <td><label for="pwd2">确认密码:</label></td>
+                <td><input type="password" name="pwd2" id="pwd2"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="注册"></td>
+                <td><input type="reset" value="重置"></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

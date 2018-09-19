@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'database',
     'mark',
     'maintain',
+    'archives',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -82,11 +84,11 @@ WSGI_APPLICATION = 'campus_base.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'campus',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': '123456',
-        'HOST': '127.0.0.1',
+        'NAME' : 'campus',
+        'HOST' : '127.0.0.1',
+        'PORT' : '3306',
+        'USER' : 'root',
+        'PASSWORD' : '213416',
     }
 }
 

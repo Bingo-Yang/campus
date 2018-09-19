@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+    <form action="/archive/teacher/" method="post">
+        {% csrf_token %}
+        <table align="center" width="700px" style="margin-top: 60px">
+            <caption><h2>教师信息注册</h2></caption>
+            <tr style="height: 50px">
+                <td><label for="na">教师姓名</label></td>
+                <td><input type="text" name="name" id="na" value="{{ teacher.te_name }}"></td>
+                <td><label for="ag">年&emsp;龄</label></td>
+                <td><input type="text" name="age" id="ag" value="{{ teacher.te_age }}"></td>
+            </tr>
+            <tr style="height: 50px">
+                <td><label for="ge">性&emsp;别</label></td>
+                {% if teacher.te_gender == '男' %}
+                    <td>
+                        <input name="gender" type="radio" id="ge" checked="checked " value="男"/>男
+                        <input name="gender" id="ge" type="radio" value="女"/>女
+                    </td>
+                {% else %}
+                    <td>
+                        <input name="gender" type="radio" id="ge" value="男"/>男
+                        <input name="gender" id="ge" type="radio" checked="checked " value="女"/>女
+                    </td>
+                {% endif %}
+                <td><label for="mar">婚&emsp;否</label></td>
+                {% if teacher.te_marriage == '未婚' %}
+                    <td>
+                        <input name="marriage" type="radio" id="mar" checked="checked " value="未婚"/>未婚
+                        <input name="marriage" id="mar" type="radio" value="已婚"/>已婚
+                    </td>
+                {% else %}
+                    <td>
+                        <input name="marriage" type="radio" id="mar" value="未婚"/>未婚
+                        <input name="marriage" id="mar" type="radio" checked="checked " value="已婚"/>已婚
+                    </td>
+                {% endif %}
+            </tr>
+            <tr style="height: 50px">
+                <td><label for="sf">身份证号</label></td>
+                <td><input type="text" name="sfz" id="sf" value="{{ teacher.te_SFZ }}"></td>
+                <td><label for="bir">出生日期</label></td>
+                <td><input type="text" name="birth" id="bir" value="{{ teacher.te_birth|date:'Y-m-d' }}"></td>
+            </tr>
+            <tr style="height: 50px">
+                <td><label for="poli">政治面貌</label></td>
+                <td><input type="text" name="political" id="poli" value="{{ teacher.te_political }}"></td>
+                <td><label for="nat">民&emsp;族</label></td>
+                <td><input type="text" name="nation" id="nat" value="{{ teacher.te_nation }}"></td>
+            </tr>
+            <tr style="height: 50px">
+                <td><label for="edu">学&emsp;历</label></td>
+                <td><input type="text" name="education" id="edu" value="{{ teacher.te_education }}"></td>
+                <td><label for="pho">联系电话</label></td>
+                <td><input type="text" name="phone" id="pho" value="{{ teacher.te_phone }}"></td>
+            </tr>
+            <tr style="height: 50px">
+                <td><label for="id">教师编号</label></td>
+                <td><input type="text" name="id" id="id" value="{{ teacher.te_id }}"></td>
+                <td><label for="maj">授课专业</label></td>
+                <td>
+                    <select name="major" id="maj">
+                        <option value="{{ teacher.te_major.ma_name }}">{{ teacher.te_major.ma_name }}</option>
+                        {% for major in majors %}
+                            {% if teacher.te_major.ma_name != major.ma_name %}
+                                <option value="{{ major.ma_name }}">{{ major.ma_name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <table align="center" width="700px" style="height: 50px">
+            <tr>
+                <td width="70px"></td>
+                <td width="66px"></td>
+                <td width="70px"></td>
+                <td width="222px"></td>
+                <td><input type="submit" value="修改" style="margin-right: 3px"></td>
+                <td><input type="reset" value="重置"></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+    <form action="/archive/start/" method="post">
+        {% csrf_token %}
+        <table align="center" width="700px" style="margin-top: 30px">
+            <caption><h2>学生入学登记</h2></caption>
+            <tr style="height: 50px;" >
+                <td width="175"></td>
+                <td width="65">学生编号</td>
+                <td width="80"><input type="text" name="id"></td>
+                <td width="20"><input type="submit" value="确定" name="submit"></td>
+                <td width="20"><input type="submit" value="提交" name="submit"></td>
+                <td><input type="submit" value="重置" name="submit"></td>
+            </tr>
+        </table>
+        <table align="center" width="700px" style="margin-top: 20px;margin-left: 650px">
+            <tr style="height: 30px">
+                <td><laber for="na">学生姓名</laber></td>
+                <td><input type="text" name="name" id="na" value="{{ stu.st_name }}"></td>
+                <td><laber for="ge">学生性别</laber></td>
+                <td><input type="text" name="gender" id="ge" value="{{ stu.st_gender }}"></td>
+            </tr>
+            <tr style="height: 30px">
+                <td><laber for="cla">班级名称</laber></td>
+                <td><input type="text" name="clazz" id="cla" value="{{ stu.st_clazz.cla_name }}"></td>
+                <td><laber for="maj">专业名称</laber></td>
+                <td><input type="text" name="major" id="maj" value="{{ stu.st_clazz.cla_major.ma_name }}"></td>
+            </tr>
+            <tr style="height: 30px">
+                <td><laber for="st">入学日期</laber></td>
+                <td><input type="date" name="starttime" id="st"></td>
+                <td><laber for="sc">入学分数</laber></td>
+                <td><input type="text" name="startscore" id="sc"></td>
+            </tr>
+        </table>
+
+
+    </form>
+{% endblock %}

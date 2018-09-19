@@ -17,6 +17,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+import archives
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,4 +27,7 @@ urlpatterns = [
     url(r'^',include('database.urls')),
     # 代码维护
     url(r'^maintain/',include('maintain.urls'))
+    url(r'^archive/',include('archives.urls')),
+    url(r'^users/',include('users.urls')),
+    url(r'^',include('database.urls'))
 ]

@@ -14,22 +14,26 @@
     </table>
     <table align="center" border="1" cellspacing="0" cellpadding="0" width="1000px;" style="text-align: center; margin-top: 50px;">
     <tr>
+        <td>任课科目</td>
         <td>教师编号</td>
         <td>教师姓名</td>
-        <td>教师性别</td>
+        <td>任职性别</td>
+        <td>教师专业</td>
+        <td>婚否</td>
         <td>任职日期</td>
-        <td>任课科目</td>
         <td>维护</td>
     </tr>
-         {% for te in t %}
+            {% for te in t %}
     <tr>
 
+        <td>{{ te.course.cou_name}}</td>
         <td>{{ te.teacher.te_id }}</td>
         <td>{{ te.teacher.te_name }}</td>
         <td>{{ te.teacher.te_gender }}</td>
+        <td>{{ te.teacher.te_major.ma_name }}</td>
+        <td>{{ te.teacher.te_marriage }}</td>
         <td>{{ te.rkDATE}}</td>
-        <td>{{ te.course.cou_name}}</td>
-        <td><a href="/login/select_teacher/?id={{ te.id }}">离职</a></td>
+        <td><a href="/login/show1/?num={{ te.id }}">离职</a></td>
 
     </tr>
         {% endfor %}

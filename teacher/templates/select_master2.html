@@ -14,25 +14,25 @@
     </table>
     <table align="center" border="1" cellspacing="0" cellpadding="0" width="1000px;" style="text-align: center; margin-top: 50px;">
     <tr>
-        <td>班级名称</td>
+        <td>教师编号</td>
         <td>教师姓名</td>
         <td>教师性别</td>
         <td>年级名称</td>
         <td>教师专业</td>
-        <td>任职日期</td>
-        <td>维护</td>
+        <td>教师年龄</td>
+        <td>教师学历</td>
+{#        <td>维护</td>#}
     </tr>
-      {% for c in clazz %}
+        {% for te in t %}
     <tr>
-
-        <td>{{ c.headteacher.clazz.cla_name }}</td>
-        <td>{{ c.headteacher.teacher.te_name }}</td>
-        <td>{{ c.headteacher.teacher.te_gender }}</td>
-        <td>{{ c.headteacher.teacher.te_grade.gr_name }}</td>
-        <td>{{ c.headteacher.teacher.te_major.ma_name }}</td>
-        <td>{{ c.headteacher.rkDATE }}</td>
-        <td><a href="/login/select_master/?id={{ c.cla_id }}">离职</a></td>
-
+            <td>{{ te.headteacher.teacher.te_id}}</td>
+            <td>{{ te.headteacher.teacher.te_name }}</td>
+            <td>{{ te.headteacher.teacher.te_gender }}</td>
+            <td>{{ te.headteacher.teacher.te_grade.gr_name }}</td>
+            <td>{{ te.headteacher.teacher.te_major.ma_name }}</td>
+            <td>{{ te.headteacher.teacher.te_age }}</td>
+            <td>{{ te.headteacher.teacher.te_education }}</td>
+{#            <td><a href="/login/show3/?num={{ te.headteacher.teacher.te_id }}">离职</a></td>#}
     </tr>
          {% endfor %}
     </table>

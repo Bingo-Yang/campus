@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
 {% block main %}
     <h2 style="text-align: center">教职任课</h2>
-    <form action="/login/t_course/" method="post">
+    <form action="/login/show/" method="post">
         {% csrf_token %}
         <label for="" style="margin-left: 350px;"> 教师编号:<input type="text" name="t_code"></label>
         <label for="" style="margin-left: 70px;">任职科目:</label>
-        {% for c in cou %}
-                <input type="checkbox" name="t_course" value="{{ c.cou_id }}"/>{{ c.cou_name }}
+{#        <select name="t_course" id=""  style="margin-top: 30px;">#}
+            {% for te in teachercourse %}
+                <input type="checkbox" value="{{ te.course.cou_id }}" checked="checked">{{ te.course.cou_name }}
+             {% endfor %}
+{#        </select>#}
+        {% for a in t_all %}
+        <label for="" style="margin-left: 70px;">  任职日期 :<input type="text" name="t_date" placeholder="{{ a.rkDATE }}"></label>
         {% endfor %}
-        <label for="" style="margin-left: 70px;">  任职日期<input type="date" name="t_date"></label>
         <table border="1" style="margin-left: 290px;margin-top: 50px; width: 800px; text-align: center " cellpadding="0" cellspacing="0">
             <tr>
                 <td>教师姓名</td>
@@ -18,7 +22,7 @@
                 <td>授课专业</td>
                 <td>婚否</td>
             </tr>
-            {% for te in t %}
+            {% for te in teachercourse %}
             <tr>
                 <td>{{ te.teacher.te_name }}</td>
                 <td>{{ te.teacher.te_gender }}</td>
@@ -29,10 +33,6 @@
             </tr>
             {% endfor %}
         </table>
-        <input type="submit" value="提交" style="margin-left: 600px; margin-top: 50px;" name="submit">
-        <input type="reset" value="重置" style="margin-left: 50px; margin-top: 50px;" name="submit">
-        <a href="/login/show/" style="margin-left: 50px;">展示</a>
-
-
+        <br><br><a href="/login/t_course/" style="margin-left: 50%;">返回</a>
     </form>
 {% endblock %}

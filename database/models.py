@@ -51,7 +51,7 @@ class Major(models.Model):
 # 班级表
 class Clazz(models.Model):
     cla_id = models.PositiveIntegerField(primary_key=True)
-    cla_name = models.CharField(max_length=20)
+    cla_name = models.CharField(max_length=20,unique=True)
     # 年级
     cla_grade = models.ForeignKey(Grade, on_delete=models.CASCADE)
     # 专业
@@ -78,7 +78,7 @@ class Stu(models.Model):
     # 身份证
     st_SFZ = models.CharField(max_length=20)
     # 电话
-    st_phone = models.PositiveIntegerField()
+    st_phone = models.CharField(max_length=20)
     st_addr = models.TextField()
     st_clazz = models.ForeignKey(Clazz, on_delete=models.CASCADE)
 
@@ -124,6 +124,7 @@ class TeacherCourse(models.Model):
     course = models.ForeignKey(Course)
     rkDATE = models.DateField()
     lizhiDATE = models.DateField()
+    
     def __unicode__(self):
         return u'教师:%s,课程:%s'%(self.teacher.te_name,self.course.cou_name)
 
@@ -133,6 +134,7 @@ class TeacherCourse(models.Model):
 # 学生课程成绩表
 class StuCourse(models.Model):
     id = models.AutoField(primary_key=True)
+    cls = models.ForeignKey(Clazz,on_delete=models.CASCADE)
     student = models.ForeignKey(Stu,on_delete=models.CASCADE)
     course = models.ForeignKey(Course,on_delete=models.CASCADE)
     sc_score = models.DecimalField(max_digits=4,decimal_places=1)
@@ -161,6 +163,7 @@ class StuRegister(models.Model):
     clazz = models.ForeignKey(Clazz,on_delete=models.CASCADE)
     start_score = models.PositiveIntegerField()
     start_time = models.DateField()
+
     def __unicode__(self):
         return u'学生登记:%s'%self.student.st_name
 

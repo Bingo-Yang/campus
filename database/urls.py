@@ -1,8 +1,8 @@
-#coding=utf-8
+
 from django.conf.urls import url
 
-from database import views
+import views
 
 urlpatterns = [
-    url(r'^$',views.homepage),
+    url(r'^$',views.login)
 ]

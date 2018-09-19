@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+
+{% block main %}
+
+--------------------------------------班级信息维护 -------------------------------------------------
+<table align="center" width="700px" style="text-align: center;" border="1" cellspacing="0" cellpadding="0">
+    <tr>
+        <td>班级代码</td>
+        <td>班级名称</td>
+        <td>年级名称</td>
+        <td>专业名称</td>
+        <td colspan="2">用户操作</td>
+    </tr>
+    {% for m in cls %}
+    <tr>
+        <td>{{ m.cla_id }}</td>
+        <td>{{ m.cla_name }}</td>
+        <td>{{ m.cla_grade.gr_name }}</td>
+        <td>{{ m.cla_major.ma_name }}</td>
+        <td><a href="/maintain/change2/{{ m.cla_id }}/{{ m.cla_name }}/{{ m.cla_grade.gr_name }}/{{ m.cla_major.ma_name }}/1"><button >修改</button></a></td>
+        <td><a href="/maintain/change2/{{ m.cla_id }}/{{ m.cla_name }}/{{ m.cla_grade.gr_name }}/{{ m.cla_major.ma_name }}/2"><button >删除</button></a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

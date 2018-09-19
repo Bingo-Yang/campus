@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+    <form action="/mark/grade/" method="post">
+    {% csrf_token %}
+        <p align="center">
+        <label for="clz">年级名称：</label>
+            &emsp;
+
+        <select name="gr" id="gr">
+            {% for gr in grades %}
+            <option value ="{{ gr.gr_id }}">{{ gr.gr_name }}</option>
+            {% endfor %}
+        </select>
+
+            &emsp;
+        <label for="aa">考试类别：</label>
+             &emsp;
+            <select id="aa" name="type">
+                <option value ="期末考试">期末考试</option>
+                <option value ="期中考试">期中考试</option>
+                <option value="月考">月考</option>
+            </select>
+            &emsp;
+        <input type="submit" value="查询">
+        </p>
+        <table border="1" align="center" cellspacing="0" cellpadding="0" width="700px" style="text-align: center;margin-top: 40px">
+            <tr style="border: 1px">
+                <td>班级名称</td>
+                <td>学生人数</td>
+                <td>考试类别</td>
+                {% for cc in cour %}
+                <td>{{ cc.cou_name }}平均分</td>
+                {% endfor %}
+                <td>班级成绩总分</td>
+            </tr>
+            {% for key,value in datas.items %}
+            <tr>
+                <td>{{ key }}</td>
+                {% for va in value %}
+                    <td>{{ va }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+{% endblock %}

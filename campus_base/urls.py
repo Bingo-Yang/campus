@@ -1,3 +1,4 @@
+# coding=utf-8
 """campus_base URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -20,6 +21,12 @@ import archives
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    # 成绩模块
+    url(r'^mark/',include('mark.urls')),
+    # 登录 数据库
+    url(r'^',include('database.urls')),
+    # 代码维护
+    url(r'^maintain/',include('maintain.urls'))
     url(r'^archive/',include('archives.urls')),
     url(r'^users/',include('users.urls')),
     url(r'^',include('database.urls'))

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'database',
+    'mark',
+    'maintain',
     'archives',
     'users',
 ]

@@ -74,7 +74,7 @@ class Stu(models.Model):
     st_nation = models.CharField(max_length=10)
     # 政治面貌
     st_political = models.CharField(max_length=10)
-    st_birth = models.DateField(auto_now_add=True)
+    st_birth = models.DateField()
     # 身份证
     st_SFZ = models.CharField(max_length=20)
     # 电话
@@ -101,7 +101,7 @@ class Teacher(models.Model):
     te_marriage = models.CharField(max_length=10)
     # 政治面貌
     te_political = models.CharField(max_length=10)
-    te_birth = models.DateField(auto_now_add=True)
+    te_birth = models.DateField()
     # 身份证
     te_SFZ = models.PositiveIntegerField()
     # 学历
@@ -122,7 +122,7 @@ class TeacherCourse(models.Model):
     teacher = models.ForeignKey(Teacher)
     course = models.ForeignKey(Course)
     rkDATE = models.DateField(auto_now_add=True)
-    lizhiDATE = models.DateField(auto_now_add=True)
+    lizhiDATE = models.DateField()
     def __unicode__(self):
         return u'教师:%s,课程:%s'%(self.teacher.te_name,self.course.cou_name)
 
@@ -159,7 +159,7 @@ class StuRegister(models.Model):
     student = models.OneToOneField(Stu)
     clazz = models.ForeignKey(Clazz,on_delete=models.CASCADE)
     start_score = models.PositiveIntegerField()
-    start_time = models.DateField(auto_now_add=True)
+    start_time = models.DateField()
     def __unicode__(self):
         return u'学生登记:%s'%self.student.st_name
 

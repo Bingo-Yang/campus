@@ -1,7 +1,7 @@
 
 .left{
-    padding: 40px;
-    width: 270px;
+    padding: 40px 10px 40px 40px;
+    width: 250px;
     position: absolute;
     top:200px;
 }

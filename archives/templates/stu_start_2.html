@@ -7,15 +7,15 @@
         <table align="center" width="700px" style="margin-top: 30px">
             <caption><h2>学生入学登记</h2></caption>
             <tr style="height: 50px;" >
-                <td width="175"></td>
+                <td width="130"></td>
                 <td width="65">学生编号</td>
-                <td width="80"><input type="text" name="id"></td>
+                <td width="80"><input type="text" name="id" value="{{ stu.st_id }}"></td>
                 <td width="20"><input type="submit" value="确定" name="submit"></td>
                 <td width="20"><input type="submit" value="提交" name="submit"></td>
                 <td><input type="submit" value="重置" name="submit"></td>
             </tr>
         </table>
-        <table align="center" width="700px" style="margin-top: 20px;margin-left: 650px">
+        <table align="center" width="700px" style="margin-top: 20px">
             <tr style="height: 30px">
                 <td><laber for="na">学生姓名</laber></td>
                 <td><input type="text" name="name" id="na" value="{{ stu.st_name }}"></td>

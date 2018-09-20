@@ -18,6 +18,7 @@
                 <td><input type="submit" value="查询" name="submit"></td>
             </tr>
         </table>
+    </form>
         <table align="center" width="1000px" style="margin-top: 60px;text-align: center" border="1">
             <tr>
                 <td width="65">学生编号</td>
@@ -47,10 +48,10 @@
                         <td>{{ stu.st_SFZ }}</td>
                         <td>{{ stu.st_birth|date:'Y-m-d' }}</td>
                         <td>{{ stu.st_addr }}</td>
-                        <td width="65"><a href="/archive/stu_up/{{ stu.st_id }}">维护</a></td>
+                        <td width="65"><a href="/archive/stu_up/{{ stu.st_id }}"><button>维护</button></a></td>
                     </tr>
                 {% endif %}
             {% endfor %}
         </table>
-    </form>
+
 {% endblock %}

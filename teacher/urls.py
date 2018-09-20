@@ -10,8 +10,6 @@ urlpatterns = [
     url(r'^show/',views.show),
     url(r'^t_master/',views.t_master),
     url(r'^select_teacher/',views.select_teacher),
-    url(r'^show1/',views.show1),
     url(r'^show2/',views.show2),
-    url(r'^show3/',views.show3),
     url(r'^select_master/',views.select_master),
 ]

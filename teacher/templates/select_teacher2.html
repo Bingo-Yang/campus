@@ -2,6 +2,7 @@
 {% block main %}
     <form action="/login/select_teacher/" method="post">
     {% csrf_token %}
+    {{ t1 }}
     <table align="center" style="margin-top: 50px;" >
     <tr>
         <td>请输入查询条件: <select name="chaxun" id="">
@@ -9,34 +10,29 @@
             <option value="教师姓名">教师姓名</option>
         </select>
         </td>
-        <td><input type="submit" value="提交" name="tijiao"></td>
+        <td><input type="text" name="teacher" ><input type="submit" value="提交" name="tijiao"></td>
     </tr>
     </table>
     <table align="center" border="1" cellspacing="0" cellpadding="0" width="1000px;" style="text-align: center; margin-top: 50px;">
     <tr>
-        <td>任课科目</td>
         <td>教师编号</td>
         <td>教师姓名</td>
         <td>任职性别</td>
         <td>教师专业</td>
         <td>婚否</td>
         <td>任职日期</td>
-        <td>维护</td>
     </tr>
-            {% for te in t %}
+    {% for te in t1 %}
     <tr>
-
-        <td>{{ te.course.cou_name}}</td>
         <td>{{ te.teacher.te_id }}</td>
         <td>{{ te.teacher.te_name }}</td>
         <td>{{ te.teacher.te_gender }}</td>
         <td>{{ te.teacher.te_major.ma_name }}</td>
         <td>{{ te.teacher.te_marriage }}</td>
         <td>{{ te.rkDATE}}</td>
-        <td><a href="/login/show1/?num={{ te.id }}">离职</a></td>
-
     </tr>
-        {% endfor %}
+         {% endfor %}
+
     </table>
     </form>
 {% endblock %}

@@ -9,7 +9,7 @@
             <option value="教师姓名">教师姓名</option>
         </select>
         </td>
-        <td><input type="submit" value="提交" name="tijiao"></td>
+        <td><input type="text" name="course" ><input type="submit" value="提交" name="tijiao"></td>
     </tr>
     </table>
     <table align="center" border="1" cellspacing="0" cellpadding="0" width="1000px;" style="text-align: center; margin-top: 50px;">
@@ -21,15 +21,14 @@
         <td>任课科目</td>
         <td>维护</td>
     </tr>
-         {% for te in t %}
+        {% for t1 in t_course %}
     <tr>
-
-        <td>{{ te.teacher.te_id }}</td>
-        <td>{{ te.teacher.te_name }}</td>
-        <td>{{ te.teacher.te_gender }}</td>
-        <td>{{ te.rkDATE}}</td>
-        <td>{{ te.course.cou_name}}</td>
-        <td><a href="/login/select_teacher/?id={{ te.id }}">离职</a></td>
+        <td>{{ t1.teacher.te_id}}</td>
+        <td>{{ t1.teacher.te_name }}</td>
+        <td>{{ t1.teacher.te_gender }}</td>
+        <td>{{ t1.rkDATE}}</td>
+        <td>{{ t1.course.cou_name}}</td>
+        <td><a href="/login/select_teacher/?id={{ t1.id }}">离职</a></td>
 
     </tr>
         {% endfor %}

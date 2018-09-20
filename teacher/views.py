@@ -40,16 +40,23 @@ def t_master(request):
 def select_teacher(request):
     if request.method=='GET':
         id = request.GET.get('id')
-        print id
+        # print id
         TeacherCourse.objects.filter(id=id).delete()
         return render(request,'select_teacher.html')
     else:
         chaxun = request.POST.get('chaxun','')
-        t = TeacherCourse.objects.all()
-        if chaxun=='教师姓名':
-            return render(request, 'select_teacher.html', {'t': t})
+        course = request.POST.get('course','')
+
         if chaxun=='任职科目':
-            return redirect('/login/show1/')
+            t_course = TeacherCourse.objects.filter(course=course)
+            return render(request, 'select_teacher.html', {'t_course':t_course})
+        if chaxun=='教师姓名':
+            teacher = int(course)
+            print teacher
+            t1=[]
+            t = TeacherCourse.objects.get(teacher=Teacher.objects.get(te_id=teacher))
+            t1.append(t)
+            return render(request, 'select_teacher2.html',{'t1':t1})
 
 #展示班主任班级
 def select_master(request):
@@ -59,13 +66,27 @@ def select_master(request):
             HeadTeacher.objects.filter(id = id).delete()
         return render(request,'select_master.html')
     else:
-        clazz = Clazz.objects.all()
-
         chaxun = request.POST.get('chaxun')
+        clazz = request.POST.get('clazz','')
         if chaxun =='班级':
-            return render(request,'select_master.html',{'clazz':clazz})
-        if chaxun == '班主任信息':
-            return redirect('/login/show3')
+            m_clazz = HeadTeacher.objects.filter(clazz=Clazz.objects.get(cla_id=clazz))
+            return render(request,'select_master.html',{'m_clazz':m_clazz})
+        if chaxun == '年级':
+            grade = int(clazz)
+            # print grade
+            # print type(grade)
+            grade = int(grade)
+            # print grade
+            clazz = Grade.objects.get(gr_id=grade).clazz_set.all()
+            t = []
+            for cls in clazz:
+                # print cls
+                cls1 = HeadTeacher.objects.get(clazz=cls)
+                # print cls1.teacher.te_name
+                cls2 = Teacher.objects.get(te_name=cls1.teacher.te_name)
+                # print cls2
+                t.append(cls2)
+            return render(request, 'select_master2.html', {'t': t})
 #查询任课教师信息
 def show(request):
     if request.method=='GET':
@@ -76,11 +97,11 @@ def show(request):
         t_all = Teacher.objects.get(te_id=t_code).teachercourse_set.all()
         return render(request,'course1.html',{'teachercourse':teachercourse,'t_all':t_all})
 #展示任职教师任职科目
-def show1(request):
-    t = TeacherCourse.objects.all()
-    num= request.POST.get('id')
-    TeacherCourse.objects.filter(id=num).delete()
-    return render(request, 'select_teacher2.html', {'t': t})
+# def show1(request):
+#     if request.method=='GET':
+#         return render(request,'select_teacher2.html')
+#     else:
+
 
 #展示班主任信息
 def show2(request):
@@ -96,7 +117,3 @@ def show2(request):
         head1 = HeadTeacher.objects.filter(teacher=master_code)
         return render(request,'master1.html',{'headteacher':headteacher,'clazz1':clazz1,'head1':head1})
 
-#展示班主任信息
-def show3(request):
-    t = Teacher.objects.all()
-    return render(request,'select_master2.html',{'t':t})

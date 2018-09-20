@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 {% block main %}
+    {{ m_clazz }}
     <form action="/login/select_master/" method="post">
     {% csrf_token %}
     <table align="center" style="margin-top: 50px;">
     <tr>
         <td>请输入查询条件: <select name="chaxun" id="">
-            <option value="班主任信息">班主任信息</option>
             <option value="班级">班级</option>
+            <option value="年级">年级</option>
         </select>
         </td>
-        <td><input type="submit" value="提交"></td>
+        <td><input type="text" name="clazz"><input type="submit" value="提交"></td>
     </tr>
     </table>
     <table align="center" border="1" cellspacing="0" cellpadding="0" width="1000px;" style="text-align: center; margin-top: 50px;">
     <tr>
-        <td>班级名称</td>
         <td>教师姓名</td>
         <td>教师性别</td>
         <td>年级名称</td>
@@ -22,16 +22,15 @@
         <td>任职日期</td>
         <td>维护</td>
     </tr>
-      {% for c in clazz %}
+      {% for m in m_clazz %}
     <tr>
 
-        <td>{{ c.headteacher.clazz.cla_name }}</td>
-        <td>{{ c.headteacher.teacher.te_name }}</td>
-        <td>{{ c.headteacher.teacher.te_gender }}</td>
-        <td>{{ c.headteacher.teacher.te_grade.gr_name }}</td>
-        <td>{{ c.headteacher.teacher.te_major.ma_name }}</td>
-        <td>{{ c.headteacher.rkDATE }}</td>
-        <td><a href="/login/select_master/?id={{ c.cla_id }}">离职</a></td>
+        <td>{{ m.teacher.te_name }}</td>
+        <td>{{ m.teacher.te_gender }}</td>
+        <td>{{ m.teacher.te_grade.gr_name}}</td>
+        <td>{{m.teacher.te_major.ma_name }}</td>
+        <td>{{ m.rkDATE}}</td>
+        <td><a href="/login/select_master/?id={{ m.teacher_id}}">离职</a></td>
 
     </tr>
          {% endfor %}

@@ -109,7 +109,7 @@ class Teacher(models.Model):
     # 电话
     te_phone = models.PositiveIntegerField()
     te_major = models.ForeignKey(Major,on_delete=models.CASCADE)
-    #取消工作内容
+    te_grade = models.ForeignKey(Grade,on_delete=models.CASCADE)
     work_content = models.TextField()
     def __unicode__(self):
         return u'教师:%s'%self.te_name
@@ -122,12 +122,11 @@ class TeacherCourse(models.Model):
     id = models.AutoField(primary_key=True)
     teacher = models.ForeignKey(Teacher)
     course = models.ForeignKey(Course)
-    rkDATE = models.DateField()
-    lizhiDATE = models.DateField()
-    
+    rkDATE = models.CharField(max_length=50)
+    lizhiDATE = models.CharField(max_length=50)
+
     def __unicode__(self):
         return u'教师:%s,课程:%s'%(self.teacher.te_name,self.course.cou_name)
-
     class Meta:
         db_table = 't_teacherCourse'
 
@@ -150,6 +149,8 @@ class HeadTeacher(models.Model):
     id = models.AutoField(primary_key=True)
     clazz = models.OneToOneField(Clazz,on_delete=models.CASCADE)
     teacher = models.OneToOneField(Teacher,on_delete=models.CASCADE)
+    rkDATE = models.CharField(max_length=50)
+
     def __unicode__(self):
         return u'班主任:%s班级:%s'%(self.teacher.te_name,self.clazz.cla_name)
 

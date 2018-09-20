@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block main %}
+     <form action="/login/show2/" method="post">
+     {% csrf_token %}
+    <br><br><label for="" style="margin-left: 520px; margin-top: 200px;">请输入教师编号: <input type="text" name="master_code"></label>
+    <table  border="1" style="width: 800px; text-align: center; margin-top: 50px;" cellpadding="0" cellspacing="0" align="center">
+        <tr>
+             <td>教师姓名</td>
+             <td>性别</td>
+             <td>年龄</td>
+             <td>学历</td>
+             <td>授课专业</td>
+             <td>婚否</td>
+        </tr>
+        {% for h in headteacher %}
+        <tr>
+             <td>{{h.teacher.te_name}}</td>
+             <td>{{ h.teacher.te_gender }}</td>
+             <td>{{ h.teacher.te_age }}</td>
+             <td>{{ h.teacher.te_education }}</td>
+             <td>{{ h.teacher.te_major.ma_name }}</td>
+             <td>{{ h.teacher.te_marriage }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+        {% for c in clazz1 %}
+        <br><label for="" style="margin-left: 350px;">班级名称: <select name="clazz" id="">
+            <option value="{{ c.cla_id }}" >{{ c.cla_name }}</option>
+        </select>
+        </label>
+        {% endfor %}
+        {% for h in head1 %}
+        <label for="" style="margin-left: 400px;">专业: <input type="text" name="zhuanye" placeholder="{{ h.teacher.te_major.ma_name }}"></label>
+        <br><br><label for="" style="margin-left: 350px;">年级: <input type="text" name="grade" style="margin-left: 30px;" placeholder="{{ h.teacher.te_grade.gr_name }}"></label>
+        <label for="" style="margin-left: 280px;">任职日期: <input type="text" name="start_date" placeholder="{{ h.rkDATE }}"></label>
+
+            {% endfor %}
+         <br><br><a href="/login/t_master/" style="margin-left: 50%">返回</a>
+    </form>
+
+
+{% endblock %}
+

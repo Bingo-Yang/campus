@@ -40,10 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'database',
+    'teacher',
+    'sysmessage',
     'mark',
     'maintain',
     'archives',
     'users',
+
 ]
 
 MIDDLEWARE = [
@@ -89,6 +92,7 @@ DATABASES = {
         'PORT' : '3306',
         'USER' : 'root',
         'PASSWORD' : '213416',
+
     }
 }
 

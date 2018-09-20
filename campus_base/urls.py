@@ -21,6 +21,8 @@ import archives
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^login/',include('teacher.urls')),
+    url(r'^dologin/',include('sysmessage.urls'))
     # 成绩模块
     url(r'^mark/',include('mark.urls')),
     # 登录 数据库
@@ -29,5 +31,4 @@ urlpatterns = [
     url(r'^maintain/',include('maintain.urls'))
     url(r'^archive/',include('archives.urls')),
     url(r'^users/',include('users.urls')),
-    url(r'^',include('database.urls'))
 ]

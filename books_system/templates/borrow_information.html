@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block main %}
+    <form action="/books_system/borrow_information/" method="post">
+         {% csrf_token %}
+        <hr>
+        <table style="margin: 0 auto;">
+{#            搜索功能#}
+            <tr>
+                <td>
+                    <select name="choice" id="addNew">
+                    <option value="book_code">编号</option>
+                    <option value="book_name">图书名</option>
+                    <option value="st_id">学号</option>
+                    <option value="borrow_all">展示所有</option>
+                    </select>
+                </td>
+                <td><input type="text" name="content">
+                </td>
+                <td><input type="submit" value="查询"></td>
+                <td><a href="/books_system/borrow_information/">返回</a>
+                </td>
+            </tr>
+        </table>
+        <br>
+{#        {{ borrow }}#}
+        <table border="1" cellpadding="9" cellspacing="0" width="1200" style="margin: 0 auto;">
+            <tr>
+                <td>学号</td>
+                <td>姓名</td>
+                <td>种类</td>
+                <td>书号</td>
+                <td>书名</td>
+                <td>作者</td>
+                <td>价格</td>
+                <td>登记员</td>
+                <td>借阅日期</td>
+                <td>归还日期</td>
+            </tr>
+            {% for bo in borrow %}
+            <tr>
+                <td>{{ bo.student.st_id }}</td>
+                <td>{{ bo.student.st_name }}</td>
+                <td>{{ bo.book.bo_type }}</td>
+                <td>{{ bo.book.bo_id }}</td>
+                <td>{{ bo.book.bo_name }}</td>
+                <td>{{ bo.book.bo_author }}</td>
+                <td>{{ bo.book.bo_price }}</td>
+                <td>{{ bo.registrar }}</td>
+                <td>{{ bo.start_time }}</td>
+                <td>{{ bo.end_time }}</td>
+            </tr>
+            {% endfor %}
+
+
+        </table>
+    </form>
+{% endblock %}

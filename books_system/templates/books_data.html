@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block main %}
+    <hr>
+{#    {{ book }}#}
+    <form action="/books_system/book_data/" method="post">
+    {% csrf_token %}
+        <table style="margin: 0 auto;">
+{#            搜索功能#}
+            <tr>
+                <td><select name="choice" id="addNew">
+                <option value="book_code">编号</option>
+                <option value="book_name">书名</option>
+                <option value="book_author">作者</option>
+                <option value="book_type">种类</option>
+                <option value="book_all">展示所有</option>
+                </select></td>
+                <td><input type="text" name="content"></td>
+                <td><input type="submit" value="查询"></td>
+                <td><a href="/books_system/book_data/">返回</a></td>
+            </tr>
+        </table>
+        <br><br><br>
+        <table aline="center" border="1" cellpadding="9" cellspacing="0" width="1200" style="margin: 0 auto;">
+            <tr>
+                <td>种类</td>
+                <td>书号</td>
+                <td>书名</td>
+                <td>作者</td>
+                <td>出版社</td>
+                <td>发行日期</td>
+                <td>入库日期</td>
+                <td>价格</td>
+                <td>登记员</td>
+                <td>总数量</td>
+                <td>修改</td>
+            </tr>
+            {% for bo in book %}
+                 <tr>
+                    <td>{{ bo.bo_type }}</td>
+                    <td>{{ bo.bo_id }}</td>
+                    <td>{{ bo.bo_name }}</td>
+                    <td>{{ bo.bo_author }}</td>
+                    <td>{{ bo.bo_publisher }}</td>
+                    <td>{{ bo.bo_ptime }}</td>
+                    <td>{{ bo.bo_rukutime }}</td>
+                    <td>{{ bo.bo_price }}</td>
+                    <td>{{ bo.bo_operator }}</td>
+                    <td>{{ bo.bo_number }}</td>
+                    <td><a href="/books_system/alter_books/{{ bo.bo_id }}" ><input type="button" value="修改"> </a></td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </form>
+{% endblock %}

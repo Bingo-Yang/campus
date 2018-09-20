@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'database',
+    'books_system',
 ]
 
 MIDDLEWARE = [
@@ -79,8 +80,12 @@ WSGI_APPLICATION = 'campus_base.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 't_schoolproject',
+        'HOST': 'localhost',
+        'USER': 'root',
+        'PORT': '3306',
+        'PASSWORD': '123',
     }
 }
 
@@ -125,7 +130,5 @@ STATIC_URL = '/static/'
 
 # global_settings
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static/images'),
-    os.path.join(BASE_DIR,'static/css'),
-    os.path.join(BASE_DIR,'static/js'),
+    os.path.join(BASE_DIR, 'static'),
 ]

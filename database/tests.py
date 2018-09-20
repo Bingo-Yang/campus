@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from datetime import datetime
 
-from django.test import TestCase
-
+start_date = datetime.strptime("2016-06-07", "%Y-%m-%d")
+print start_date
 # Create your tests here.

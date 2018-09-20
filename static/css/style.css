@@ -1,5 +1,5 @@
 HTML {
-	BACKGROUND::#F6F6F6; COLOR: #000
+	BACKGROUND:#F6F6F6; COLOR: #000
 }
 body {
 	background-color:#F6F6F6;
@@ -8,7 +8,7 @@ body {
 
 
 #menu {
-	LINE-HEIGHT: 42px; MARGIN: 0px auto; WIDTH: 1100px; HEIGHT: 42px;
+	LINE-HEIGHT: 42px; MARGIN: 0px auto; WIDTH: 900px; HEIGHT: 42px;
 }
 #menu UL {
 	LIST-STYLE-TYPE: none; LIST-STYLE-IMAGE: none
@@ -45,7 +45,7 @@ A.l2-nav {
 	TEXT-ALIGN: center; LINE-HEIGHT: 42px; WIDTH: 122px; DISPLAY: block; BACKGROUND:#0159A3; HEIGHT: 42px; COLOR: #fff; TEXT-DECORATION: none;
 	FONT-FAMILY: "Microsoft YaHei";
 	font-size:15px;
-		FILTER: alpha(opacity=80); 
+	/*FILTER: alpha(opacity=80);*/
 	Opacity: 0.7;	
 	
 }
@@ -80,3 +80,4 @@ LI.l1-nav:hover UL.l2-nav {
 
 
 /*foot end */
+

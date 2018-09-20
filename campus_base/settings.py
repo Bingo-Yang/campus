@@ -41,6 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'database',
     'books_system',
+    'teacher',
+    'sysmessage',
+    'mark',
+    'maintain',
+    'archives',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -81,11 +87,12 @@ WSGI_APPLICATION = 'campus_base.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 't_schoolproject',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PORT': '3306',
-        'PASSWORD': '123',
+
+        'NAME' : 'campus',
+        'HOST' : '127.0.0.1',
+        'PORT' : '3306',
+        'USER' : 'root',
+        'PASSWORD' : '213416',
     }
 }
 

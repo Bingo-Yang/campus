@@ -7,41 +7,50 @@
 	<title>校园管理系统</title>
 	<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="{% static 'lrtk.css' %}">
+    <link rel="stylesheet" href="{% static 'zi.css' %}">
 	<!-- 下拉特效 Styles begin -->
 	<link rel="stylesheet" href="{% static 'bellows.css' %}">
 	<link rel="stylesheet" href="{% static 'bellows-theme.css' %}">
 	<!-- 下拉特效 Styles end -->
-	
+    <script type="text/javascript" src="{% static 'jquery-1.12.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'cjjs.js' %}"></script>
+    <style>
+        span{
+            font-size: 8px;
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
 	<div id="logo_top">
 
 
+
 	</div>
 
 	<!--menu begin-->
 	<div class="pc-menue">
-	    <div id="menu">
+	    <div id="menu" style="width: 1000px">
 		    <ul class="l1-nav">
-				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/">网站首页</a> </li>
-				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/xwpd/xygk">档案管理</a> 
+				<li class="l1-nav"><a class="l1-nav" href="/">网站首页</a> </li>
+				<li class="l1-nav"><a class="l1-nav" href="#">档案管理</a>
 					<ul class="l2-nav">
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xygk/857.html">学生基本信息</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xygk/1274.html">学生入校登记</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xygk/859.html">学生信息维护</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/tppd/">学生登记查询</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/tppd/">教师基本信息</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/tppd/">教师信息维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/archive/student/">学生基本信息</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/archive/start/">学生入校登记</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/archive/stu_up/">学生信息维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/archive/select/">学生登记查询</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/archive/teacher/">教师基本信息</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/archive/tea_up/">教师信息维护</a> </li>
 					</ul>
 				</li>
 				
-				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/xwpd/xxxw">成绩管理</a>
+				<li class="l1-nav"><a class="l1-nav" href="#">成绩管理</a>
 					<ul class="l2-nav">
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxxw/">成绩录入</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxgg/">成绩查询</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxgg/">班级成绩统计</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxgg/">年级成绩统计</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/mark/register/">成绩录入</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/mark/select/">成绩查询</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/mark/stat/">班级成绩统计</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/mark/grade/">年级成绩统计</a> </li>
 					</ul>	
 				</li>			
 				
@@ -68,22 +77,22 @@
 						
 				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/zzjg">代码维护</a> 
 					<ul class="l2-nav">
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/ycbgs/">专业代码维护</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/rsc/index.html">年级代码维护</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/jwc/">班级代码维护</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xgc/">学科代码维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/maintain/major/">专业代码维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/maintain/grade/">年级代码维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/maintain/clazz/">班级代码维护</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/maintain/course/">学科代码维护</a> </li>
 					</ul>
 				</li>
 				
 				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/jwc/">用户维护</a> 
 
 					<ul class="l2-nav">
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/dz.html">用户添加</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/jwc/">用户查询</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/users/register/">用户添加</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/users/select/">用户查询</a> </li>
 					</ul>
 
 
-				</li>
+
 				
 				<li class="l1-nav"><a class="l1-nav" href="/dologin.">系统信息</a> </li>
 			</ul>
@@ -91,14 +100,22 @@
 	</div>
 
 
-	<div class='content'>
-		{% block main %}
-
-		{% endblock %}
-	</div>
 
 
 
+    <div id="middle" style="">
+        <div class="left">
+            <p>当前用户：{{ z }}</p>
+            <a href="/"><button >重新登录</button></a>
+            <button onClick="window.location.href='about:blank';window.close();" >退出系统</button>
+        </div>
+        <div class='content'>
+            {% block main %}
+
+            {% endblock %}
+        </div>
+        <div class="right">a</div>
+    </div>
 
 
 
@@ -108,4 +125,16 @@
 
 
 
+
+
+
+
+
+    <div style="width: 100%; height: 100px;background-color:#cccccc ;position:absolute;bottom:0;">
+        <br>
+        <p style="font-size: 5px;text-align: center">©待定组 『李长生 史贺 赵智博 薛坤』</p>
+        <p style="font-size: 5px;text-align: center">重剑无锋&emsp;大巧不工</p>
+
+    </div>
 </body></html>
+

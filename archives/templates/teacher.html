@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+    <form action="/archive/teacher/" method="post">
+        {% csrf_token %}
+        <table align="center" width="700px" style="margin-top: 60px">
+            <caption><h2>教师信息注册</h2></caption>
+            <tr style="height: 50px">
+                <td><label for="na">教师姓名</label></td>
+                <td><input type="text" name="name" id="na"></td>
+                <td><label for="ag">年&emsp;龄</label></td>
+                <td><input type="text" name="age" id="ag"></td>
+            </tr>
+            <tr style="height: 50px">
+                <td><label for="ge">性&emsp;别</label></td>
+                <td>
+                    <input name="gender" type="radio" id="ge" checked="checked " value="男"/>男
+                    <input name="gender" id="ge" type="radio" value="女"/>女
+                </td>
+                <td><label for="mar">婚&emsp;否</label></td>
+                <td>
+                    <input name="marriage" type="radio" id="mar" checked="checked " value="未婚"/>未婚
+                    <input name="marriage" id="mar" type="radio" value="已婚"/>已婚
+                </td>
+            </tr>
+            <tr style="height: 50px">
+                <td><label for="sf">身份证号</label></td>
+                <td><input type="text" name="sfz" id="sf"></td>
+                <td><label for="bir">出生日期</label></td>
+                <td><input type="date" name="birth" id="bir"></td>
+            </tr>
+            <tr style="height: 50px">
+                <td><label for="poli">政治面貌</label></td>
+                <td><input type="text" name="political" id="poli"></td>
+                <td><label for="nat">民&emsp;族</label></td>
+                <td><input type="text" name="nation" id="nat"></td>
+            </tr>
+            <tr style="height: 50px">
+                <td><label for="edu">学&emsp;历</label></td>
+                <td><input type="text" name="education" id="edu"></td>
+                <td><label for="pho">联系电话</label></td>
+                <td><input type="text" name="phone" id="pho"></td>
+            </tr>
+            <tr style="height: 50px">
+                <td><label for="id">教师编号</label></td>
+                <td><input type="text" name="id" id="id"></td>
+                <td><label for="maj">授课专业</label></td>
+                <td>
+                    <select name="major" id="maj">
+                        {% for major in majors %}
+                            <option value="{{ major.ma_name }}">{{ major.ma_name }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <table align="center" width="700px" style="height: 50px">
+            <tr>
+                <td width="70px"></td>
+                <td width="66px"></td>
+                <td width="70px"></td>
+                <td width="222px"></td>
+                <td><input type="submit" value="提交" style="margin-right: 3px"></td>
+                <td><input type="reset" value="重置"></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

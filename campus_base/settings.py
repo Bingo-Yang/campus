@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'database',
     'teacher',
     'sysmessage',
+    'mark',
+    'maintain',
+    'archives',
+    'users',
 
 ]
 
@@ -83,11 +87,12 @@ WSGI_APPLICATION = 'campus_base.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysql12',
-        'USER':'root',
-        'PASSWORD':'123456',
-        'PORT':'3306',
-        'HOST':'127.0.0.1'
+        'NAME' : 'campus',
+        'HOST' : '127.0.0.1',
+        'PORT' : '3306',
+        'USER' : 'root',
+        'PASSWORD' : '213416',
+
     }
 }
 

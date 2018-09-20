@@ -1,3 +1,4 @@
+# coding=utf-8
 """campus_base URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -16,9 +17,18 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+import archives
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/',include('teacher.urls')),
     url(r'^dologin/',include('sysmessage.urls'))
+    # 成绩模块
+    url(r'^mark/',include('mark.urls')),
+    # 登录 数据库
+    url(r'^',include('database.urls')),
+    # 代码维护
+    url(r'^maintain/',include('maintain.urls'))
+    url(r'^archive/',include('archives.urls')),
+    url(r'^users/',include('users.urls')),
 ]

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+    <form action="/mark/register/" method="post">
+    {% csrf_token %}
+        <table align="center" width="700px">
+           <tr style="height: 50px">
+               <td><label for="code">学生编号：</label></td>
+               <td><input type="text" name="code" id="code" onblur="checkCode()"><span id="codespan"></span></td>
+               <td><label for="name">学生姓名：</label></td>
+               <td><input type="text" name="name" id="name" onblur="checkName()"><span id="namespan"></span></td>
+           </tr>
+           <tr>
+               <td><label for="aa">考试类别：</label></td>
+               <td>
+                   <select id="aa" name="type">
+                      <option value ="期末考试">期末考试</option>
+                      <option value ="期中考试">期中考试</option>
+                      <option value="月考">月考</option>
+                    </select>
+               </td>
+               <td><label for="cls">学生班级：</label></td>
+               <td><input type="text" name="cls" id="cls" onblur="clss()"><span id="clsspan"></span></td>
+           </tr>
+        </table>
+        <table border="1" align="center" cellspacing="0" cellpadding="0" width="700px" style="text-align: center;margin-top: 40px">
+            <tr style="border: 1px">
+                <td>考试科目</td>
+                <td>考试成绩</td>
+            </tr>
+            {% for co in course %}
+            <tr>
+                <td width="350px">{{ co.cou_name }}</td>
+                <td><input type="text" name="{{ co.cou_name }}"></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table align="center" width="700px" style="margin-top: 40px">
+            <tr>
+                <td width="110px"></td>
+                <td width="400px"></td>
+                <td><input type="submit" value="提交"></td>
+                <td><input type="reset" value="重置"></td>
+            </tr>
+        </table>
+    </form>
+
+{% endblock %}

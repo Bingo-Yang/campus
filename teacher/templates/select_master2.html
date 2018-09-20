@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block main %}
+    {{ t }}
+    <form action="/login/select_master/" method="post">
+    {% csrf_token %}
+    <table align="center" style="margin-top: 50px;">
+    <tr>
+        <td>请输入查询条件: <select name="chaxun" id="">
+            <option value="年级">年级</option>
+            <option value="班级">班级</option>
+        </select>
+        </td>
+        <td><input type="text" name="grade"><input type="submit" value="提交"></td>
+    </tr>
+    </table>
+    <table align="center" border="1" cellspacing="0" cellpadding="0" width="1000px;" style="text-align: center; margin-top: 50px;">
+    <tr>
+        <td>教师编号</td>
+        <td>教师姓名</td>
+        <td>教师性别</td>
+        <td>年级名称</td>
+        <td>教师专业</td>
+        <td>教师年龄</td>
+        <td>教师学历</td>
+{#        <td>维护</td>#}
+    </tr>
+        {% for te in t %}
+    <tr>
+            <td>{{ te.te_id }}</td>
+            <td>{{ te.te_name}}</td>
+            <td>{{ te.te_gender }}</td>
+            <td>{{ te.te_grade.gr_name }}</td>
+            <td>{{ te.te_major.ma_name }}</td>
+            <td>{{ te.te_age }}</td>
+            <td>{{ te.te_education }}</td>
+{#            <td><a href="/login/show3/?num={{ te.headteacher.teacher.te_id }}">离职</a></td>#}
+    </tr>
+         {% endfor %}
+    </table>
+    </form>
+{% endblock %}

@@ -5,12 +5,14 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<style type="text/css"></style>
 	<title>校园管理系统</title>
+
 	<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="{% static 'lrtk.css' %}">
     <link rel="stylesheet" href="{% static 'zi.css' %}">
+
 	<!-- 下拉特效 Styles begin -->
-	<link rel="stylesheet" href="{% static 'bellows.css' %}">
-	<link rel="stylesheet" href="{% static 'bellows-theme.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bellows.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bellows-theme.css' %}">
 	<!-- 下拉特效 Styles end -->
     <script type="text/javascript" src="{% static 'jquery-1.12.3.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'cjjs.js' %}"></script>
@@ -56,22 +58,21 @@
 				
 				
 				
-				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/xydj/">教职工管理</a> 
+				<li class="l1-nav"><a class="l1-nav" href="#">教职工管理</a>
 					<ul class="l2-nav">
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxxw/">教职任课</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxgg/">班主任信息</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxgg/">任课教师查询</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xwpd/xxgg/">班主任查询</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/login/t_course/">教职任课</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/login/t_master/">班主任信息</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/login/select_teacher/">任课教师查询</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/login/select_master">班主任查询</a> </li>
 					</ul>
 				</li>
 				
-				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/ybsza/">图书馆管理</a>
+				<li class="l1-nav"><a class="l1-nav" href="#">图书馆管理</a>
 					<ul class="l2-nav">
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/qcgcx/">图书登记</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/jjglx/">图书维护</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/jzgcx/">图书借阅</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/znzzgcxy/">图书归还</a> </li>
-						<li class="l2-nav"><a class="l2-nav" href="http://www.hbkjxy.cn/html/xxyysx/">借阅查询</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/books_system/book_register/">图书登记</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/books_system/book_data/">图书信息查询</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/books_system/borrow_register/">图书借阅登记</a> </li>
+						<li class="l2-nav"><a class="l2-nav" href="/books_system/borrow_information/">借阅信息查询</a> </li>
 					</ul>	
 				</li>	
 						
@@ -94,10 +95,13 @@
 
 
 				
-				<li class="l1-nav"><a class="l1-nav" href="http://www.hbkjxy.cn/html/xgc/">系统信息</a> </li>	
+				<li class="l1-nav"><a class="l1-nav" href="/dologin.">系统信息</a> </li>
 			</ul>
 	    </div>
 	</div>
+
+
+
 
 
 
@@ -135,4 +139,5 @@
 {##}
 {#    </div>#}
 </body></html>
+
 

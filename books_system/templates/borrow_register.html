@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block main %}
+    <hr>
+    <br><br><br>
+    <form action="/books_system/borrow_register/"  method="post" >
+        <table aline="center"  border="1" cellpadding="10" cellspacing="0" width="1200" style="margin: 0 auto;">
+        {% csrf_token %}
+            <tr>
+                <td>学号：</td>
+                <td><input type="text" name="stu_code"></td>
+                <td>书号：</td>
+                <td><input type="text" name="bo_id"></td>
+            </tr>
+            <tr>
+                <td>借阅日期：</td>
+                <td><input type="date" name="start_time"></td>
+                <td>归还日期：</td>
+                <td><input type="date" name="end_time"></td>
+            </tr>
+            <tr>
+                <td>登记员：</td>
+                <td><input type="text" name="registrar"></td>
+            </tr>
+        </table>
+
+        <br>
+        <br>
+
+        <table style="margin: 0 auto;">
+             <tr>
+                 <td>&emsp;&emsp;<input type="submit" value="保存"></td>
+                 <td>&emsp;&emsp;<input type="reset" value="重置"></td>
+             </tr>
+        </table>
+    </form>
+{% endblock %}

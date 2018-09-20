@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'database',
+    'books_system',
+    'teacher',
+    'sysmessage',
     'mark',
     'maintain',
     'archives',
@@ -85,11 +88,11 @@ WSGI_APPLICATION = 'campus_base.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'campus',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': '123456',
+        'NAME' : 'campus',
+        'HOST' : '127.0.0.1',
+        'PORT' : '3306',
+        'USER' : 'root',
+        'PASSWORD' : '213416',
     }
 }
 
@@ -134,7 +137,5 @@ STATIC_URL = '/static/'
 
 # global_settings
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static/images'),
-    os.path.join(BASE_DIR,'static/css'),
-    os.path.join(BASE_DIR,'static/js'),
+    os.path.join(BASE_DIR, 'static'),
 ]

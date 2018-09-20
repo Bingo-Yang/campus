@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block main %}
+    <hr>
+{#    {{ book }}#}
+    {% for bo in book %}
+    <form action="/books_system/alter_books/{{ bo.bo_id }}" method="post">
+    {% csrf_token %}
+        <br><br><br>
+        <table aline="center" border="1" cellpadding="9" cellspacing="0" width="1000" style="margin: 0 auto;">
+            <tr>
+                <td>种类</td>
+                <td>编号</td>
+                <td>书名</td>
+                <td>作者</td>
+            </tr>
+        {% for bo in book %}
+            <tr>
+                <td><input type="text" name="book_type" value="{{ bo.bo_type }}"></td>
+                <td><input type="text" name="book_id" value="{{ bo.bo_id }}"></td>
+                <td><input type="text" name="book_name" value="{{ bo.bo_name }}"></td>
+                <td><input type="text" name="book_author" value="{{ bo.bo_author }}"></td>
+
+            </tr>
+        {% endfor %}
+            <tr>
+                <td>出版社</td>
+                <td>单价</td>
+                <td>登记员</td>
+                <td>总数量</td>
+            </tr>
+        {% for bo in book %}
+            <tr>
+                <td><input type="text" name="book_publisher" value="{{ bo.bo_publisher }}"></td>
+                <td><input type="text" name="book_price" value="{{ bo.bo_price }}"></td>
+                <td><input type="text" name="book_operator" value="{{ bo.bo_operator }}"></td>
+                <td><input type="text" name="book_number" value="{{ bo.bo_number }}"></td>
+
+            </tr>
+        {% endfor %}
+        </table>
+        <table style="margin: 0 auto;">
+            <tr><td><input type="submit" value="修改" ></td></tr>
+        </table>
+    </form>
+    {% endfor %}
+{% endblock %}

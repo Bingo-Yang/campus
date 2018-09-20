@@ -21,6 +21,7 @@ import archives
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^books_system/',include('books_system.urls'))
     url(r'^login/',include('teacher.urls')),
     url(r'^dologin/',include('sysmessage.urls'))
     # 成绩模块

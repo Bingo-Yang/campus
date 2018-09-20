@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block main %}
+    <hr>
+    <br>
+    <form action="/books_system/book_register/" method="post">
+    {% csrf_token %}
+    <table style="margin: 0 auto;">
+
+        <tr>
+            <td>&emsp;书号：&emsp;&emsp;&emsp;&emsp;<input type="text" name="book_code"></td>
+            <td>&emsp;书名：&emsp;&emsp;&emsp;&emsp;<input type="text" name="book_name"></td>
+        </tr>
+        <tr>
+            <td>&emsp;作者：&emsp;&emsp;&emsp;&emsp;<input type="text" name="book_author"></td>
+            <td>&emsp;种类：&emsp;&emsp;&emsp;&emsp;<input type="text" name="book_type"></td>
+        </tr>
+        <tr>
+            <td>&emsp;出版社：&emsp;&emsp;&emsp;<input type="text" name="book_publisher"></td>
+            <td>&emsp;图书数量：&emsp;&emsp;<input type="text" name="book_number"></td>
+
+        </tr>
+        <tr>
+            <td>&emsp;价格：&emsp;&emsp;&emsp;&emsp;<input type="text" name="book_price"></td>
+            <td>&emsp;登记员：&emsp;&emsp;&emsp;<input type="text" name="book_operator"></td>
+        </tr>
+        <tr>
+            <td>&emsp;登录日期：&emsp;&emsp;<input type="date" name="book_rukutime"></td>
+            <td>&emsp;发行日期：&emsp;&emsp;<input type="date" name="book_time"></td>
+
+        </tr>
+        <tr>
+            <td>&emsp;图书简介：&emsp;&emsp;<input type="text" name="book_introduce"></td>
+        </tr>
+
+
+    </table>
+    <br>
+    <table style="margin: 0 auto;" >
+        <tr>
+            <td>&emsp;&emsp;<input type="submit" value="保存"></td>
+            <td>&emsp;&emsp;<input type="reset" value="重置"></td>
+        </tr>
+    </table>
+    </form>
+{% endblock %}

@@ -29,7 +29,7 @@ urlpatterns = [
     # 登录 数据库
     url(r'^',include('database.urls')),
     # 代码维护
-    url(r'^maintain/',include('maintain.urls'))
+    url(r'^maintain/',include('maintain.urls')),
     url(r'^archive/',include('archives.urls')),
     url(r'^users/',include('users.urls')),
 ]

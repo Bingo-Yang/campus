@@ -17,6 +17,7 @@
                 <td><input type="submit" value="查询" name="submit"></td>
             </tr>
         </table>
+    </form>
         <table align="center" width="1000px" style="margin-top: 60px;text-align: center" border="1">
             <tr>
                 <td width="65">教师编号</td>
@@ -34,10 +35,10 @@
                         <td>{{ teacher.te_SFZ }}</td>
                         <td>{{ teacher.te_gender }}</td>
                         <td>{{ teacher.te_major.ma_name }}</td>
-                        <td width="65"><a href="/archive/tea_up/{{ teacher.te_id }}"><button>维护</button></a></td>
+                        <td width="65"><a href="/archive/teacher/{{ teacher.te_id }}"><button>维护</button></a></td>
                     </tr>
 
                 {% endfor %}
         </table>
-    </form>
+
 {% endblock %}

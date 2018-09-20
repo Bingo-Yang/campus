@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from datetime import datetime,timedelta
 
 import time
@@ -34,7 +34,8 @@ def stu_base(request):
         cla = Clazz.objects.get(cla_name=clazz)
         #存入学生表
         Stu.objects.create(st_id=id,st_name=name,st_gender=gender,st_age=age,st_SFZ=SFZ,st_birth=birth,st_phone=phone,st_addr=addr,st_political=political,st_nation=nation,st_clazz=cla)
-        return HttpResponse('注册成功')
+        con = '注册成功'
+        return render(request,'power.html',{'con':con})
 
 def stu_start(request):
     if request.method == 'GET':
@@ -48,13 +49,14 @@ def stu_start(request):
             return render(request,'stu_start_2.html',{'stu':stu})
         #点提交获取数据存入数据库
         elif request.POST.get('submit', '') == '提交':
-            sname = request.POST.get('name','')
-            stu = Stu.objects.get(st_name=sname)
+            id = request.POST.get('id','')
+            stu = Stu.objects.get(st_id=id)
             clazz = stu.st_clazz
             starttime = request.POST.get('starttime','')
             startscore = request.POST.get('startscore','')
             StuRegister.objects.create(student=stu,clazz=clazz,start_score=startscore,start_time=starttime)
-            return HttpResponse('提交成功')
+            con = '提交成功'
+            return render(request, 'power.html', {'con': con})
         #点重置返回初始页
         elif request.POST.get('submit', '') == '重置':
             return render(request, 'stu_start.html')
@@ -73,8 +75,8 @@ def stu_update(request,num):
             stus = []
             #将num转为字符串
             num = long(num)
-            for stu_name in stu_list:
-                stu = Stu.objects.get(st_name=stu_name)
+            for stu_id in stu_list:
+                stu = Stu.objects.get(st_id=stu_id)
                 stus.append(stu)
             return render(request,'stu_update.html',{'num':num,'stus':stus})
         else:
@@ -88,9 +90,9 @@ def stu_update(request,num):
                 stus = Stu.objects.filter(st_id=query)
                 #创建学生列表
                 stu_list = []
-                #循环遍历将学生姓名加入列表
+                #循环遍历将学生id加入列表
                 for stu in stus:
-                    stu_list.append(stu.st_name)
+                    stu_list.append(str(stu.st_id))
                 #把列表合成字符串
                 stu_str = ','.join(stu_list)
                 #把字符串存进session
@@ -100,9 +102,9 @@ def stu_update(request,num):
                 stus = Stu.objects.filter(st_name=query)
                 # 创建学生列表
                 stu_list = []
-                # 循环遍历将学生姓名加入列表
+                # 循环遍历将学生id加入列表
                 for stu in stus:
-                    stu_list.append(stu.st_name)
+                    stu_list.append(str(stu.st_id))
                 # 把列表合成字符串
                 stu_str = ','.join(stu_list)
                 # 把字符串存进session
@@ -112,9 +114,9 @@ def stu_update(request,num):
                 stus = Stu.objects.filter(st_SFZ=query)
                 # 创建学生列表
                 stu_list = []
-                # 循环遍历将学生姓名加入列表
+                # 循环遍历将学生id加入列表
                 for stu in stus:
-                    stu_list.append(stu.st_name)
+                    stu_list.append(str(stu.st_id))
                 # 把列表合成字符串
                 stu_str = ','.join(stu_list)
                 # 把字符串存进session
@@ -124,9 +126,9 @@ def stu_update(request,num):
                 stus = Clazz.objects.get(cla_name=query).stu_set.all()
                 # 创建学生列表
                 stu_list = []
-                # 循环遍历将学生姓名加入列表
+                # 循环遍历将学生id加入列表
                 for stu in stus:
-                    stu_list.append(stu.st_name)
+                    stu_list.append(str(stu.st_id))
                 # 把列表合成字符串
                 stu_str = ','.join(stu_list)
                 # 把字符串存进session
@@ -141,7 +143,7 @@ def stu_update(request,num):
             addr = request.POST.get('addr','')
             id = request.POST.get('id','')
             Stu.objects.filter(st_id=id).update(st_name=name,st_SFZ=SFZ,st_birth=birth,st_addr=addr)
-            return HttpResponse('修改成功')
+            return redirect('/archive/stu_up/1')
 
 
 def stu_select(request):
@@ -186,11 +188,17 @@ def stu_select(request):
                 return render(request,'stu_select.html',{'stus':stus})
 
 
-def tea_base(request):
+def tea_base(request,num1):
     if request.method == 'GET':
-        majors = Major.objects.all()
-        return render(request,'teacher.html',{'majors':majors})
-    else:
+        global num2
+        num2 = num1
+        if num2:
+            teacher = Teacher.objects.get(te_id=num2)
+            return render(request,'tea_update2.html',{'teacher':teacher})
+        else:
+            majors = Major.objects.all()
+            return render(request,'teacher.html',{'majors':majors})
+    elif request.POST.get('submit', '') == '提交':
         marriage = request.POST.get('marriage','')
         name = request.POST.get('name', '')
         id = request.POST.get('id', '')
@@ -205,16 +213,33 @@ def tea_base(request):
         major_name = request.POST.get('major','')
         major = Major.objects.get(ma_name=major_name)
         Teacher.objects.create(te_name=name,te_marriage=marriage,te_id=id,te_gender=gender,te_age=age,te_SFZ=SFZ,te_birth=birth,te_phone=phone,te_education=education,te_political=political,te_nation=nation,te_major=major)
-        return HttpResponse('注册成功')
+        con = '注册成功'
+        return render(request, 'power.html', {'con': con})
+    elif request.POST.get('submit', '') == '修改':
+        marriage = request.POST.get('marriage', '')
+        name = request.POST.get('name', '')
+        id = request.POST.get('id', '')
+        gender = request.POST.get('gender', '')
+        age = request.POST.get('age', '')
+        SFZ = request.POST.get('sfz', '')
+        birth_str = request.POST.get('birth', '')
+        birth = datetime.strptime(birth_str, '%Y-%m-%d')
+        phone = request.POST.get('phone', '')
+        education = request.POST.get('education', '')
+        political = request.POST.get('political', '')
+        nation = request.POST.get('nation', '')
+        major_name = request.POST.get('major', '')
+        major = Major.objects.get(ma_name=major_name)
+        Teacher.objects.filter(te_id=num2).update(te_name=name, te_marriage=marriage, te_id=id, te_gender=gender, te_age=age,
+                                                 te_SFZ=SFZ, te_birth=birth, te_phone=phone, te_education=education,
+                                                 te_political=political, te_nation=nation, te_major=major)
+        con = '修改成功'
+        return render(request, 'power.html', {'con': con})
 
 
-def tea_update(request,num):
+def tea_update(request):
     if request.method == 'GET':
-        if num:
-            teacher = Teacher.objects.get(te_id=num)
-            return render(request,'tea_update2.html',{'teacher':teacher})
-        else:
-            return render(request, 'tea_update.html')
+        return render(request, 'tea_update.html')
     else:
         if request.POST.get('submit','') == '查询':
             select = request.POST.get('select', '')
@@ -228,22 +253,3 @@ def tea_update(request,num):
             elif select == '专业名称':
                 teachers = Major.objects.get(ma_name=query).teacher_set.all()
                 return render(request,'tea_update.html',{'teachers':teachers})
-        elif request.POST.get('submit','') == '修改':
-            marriage = request.POST.get('marriage', '')
-            name = request.POST.get('name', '')
-            id = request.POST.get('id', '')
-            gender = request.POST.get('gender', '')
-            age = request.POST.get('age', '')
-            SFZ = request.POST.get('sfz', '')
-            birth_str = request.POST.get('birth', '')
-            birth = datetime.strptime(birth_str, '%Y-%m-%d')
-            phone = request.POST.get('phone', '')
-            education = request.POST.get('education', '')
-            political = request.POST.get('political', '')
-            nation = request.POST.get('nation', '')
-            major_name = request.POST.get('major', '')
-            major = Major.objects.get(ma_name=major_name)
-            Teacher.objects.filter(te_id=num).update(te_name=name, te_marriage=marriage, te_id=id, te_gender=gender, te_age=age,
-                                   te_SFZ=SFZ, te_birth=birth, te_phone=phone, te_education=education,
-                                   te_political=political, te_nation=nation, te_major=major)
-            return HttpResponse('修改成功')

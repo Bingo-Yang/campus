@@ -73,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'database.my_context_processors.sess',
             ],
         },
     },
@@ -87,7 +88,6 @@ WSGI_APPLICATION = 'campus_base.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-
         'NAME' : 'campus',
         'HOST' : '127.0.0.1',
         'PORT' : '3306',

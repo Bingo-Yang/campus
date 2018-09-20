@@ -167,7 +167,6 @@ class StuRegister(models.Model):
         db_table = 't_stuRegister'
 
 
-# 图书信息表
 class Book(models.Model):
     bo_id = models.PositiveIntegerField(primary_key=True,unique=True)
     bo_name = models.CharField(max_length=30)
@@ -210,20 +209,3 @@ class Borrow(models.Model):
 
     class Meta:
         db_table = 't_borrow'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
